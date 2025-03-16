@@ -47,11 +47,10 @@ def save_data(df, file_path):
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     df.to_csv(file_path, index=False)
 
-def get_data():
+def get_data(raw_file='../data/raw/df_ready.csv', processed_file='../data/processed/df_cleaned.csv'):
     """
     Load, clean and return data frame
     """
-
     data = load_data()
     data_cleaned = clean_data(data)
     save_data(data_cleaned)
