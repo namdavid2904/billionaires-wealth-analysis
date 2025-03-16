@@ -51,7 +51,7 @@ def get_data(raw_file='../data/raw/df_ready.csv', processed_file='../data/proces
     """
     Load, clean and return data frame
     """
-    data = load_data()
+    data = load_data(raw_file='../data/raw/df_ready.csv')
     data_cleaned = clean_data(data)
     save_data(data_cleaned)
     return data_cleaned
