@@ -73,7 +73,7 @@ def create_advanced_features(df):
     """Create more advanced features for predictive modeling"""
     df = df.copy()
     
-    # Create wealth-to-GDP ratio (how wealthy the billionaire is relative to country's economy)
+    # Create wealth-to-GDP ratio
     df['wealth_to_gdp_ratio'] = df['wealth'] / (df['gdp_country'] + 1)  # Add 1 to avoid division by zero
     
     # Create log-transformed features for skewed numeric variables
