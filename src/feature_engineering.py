@@ -68,3 +68,35 @@ def create_features(df):
     df = create_wealth_features(df, 'net_worth')
     df = create_geo_features(df, 'country')
     return df
+
+def create_advanced_features(df):
+    """Create more advanced features for predictive modeling"""
+    df = df.copy()
+    
+    # Create wealth-to-GDP ratio (how wealthy the billionaire is relative to country's economy)
+    df['wealth_to_gdp_ratio'] = df['wealth'] / (df['gdp_country'] + 1)  # Add 1 to avoid division by zero
+    
+    # Create log-transformed features for skewed numeric variables
+    df['log_wealth'] = np.log1p(df['wealth'])
+    df['log_gdp'] = np.log1p(df['gdp_country'])
+    df['log_country_pop'] = np.log1p(df['country_pop'])
+    
+    # Create wealth per capita feature (billionaire's wealth divided by country population)
+    df['wealth_per_capita'] = df['wealth'] / (df['country_pop'] + 1)
+    
+    # Calculate career length (assuming careers start at age 25)
+    df['career_years'] = df['age'] - 25
+    df['career_years'] = df['career_years'].apply(lambda x: max(x, 1))  # Avoid negative or zero values
+    
+    # Calculate wealth per career year
+    df['wealth_per_year'] = df['wealth'] / df['career_years']
+    
+    # Create interaction features
+    df['gdp_per_capita'] = df['gdp_country'] / (df['country_pop'] + 1)
+    
+    # Create binary features
+    df['is_male'] = (df['gender'] == 'M').astype(int)
+    df['is_tech_industry'] = (df['industry'] == 'Technology').astype(int)
+    df['is_finance_industry'] = (df['industry'] == 'Finance & Investments').astype(int)
+    
+    return df
