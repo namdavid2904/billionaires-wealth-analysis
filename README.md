@@ -132,7 +132,13 @@ The best-performing model was a **Random Forest Regressor with Bayesian optimiza
    ```bash
    pip install -r requirements.txt
    ```
-4. Run Jupyter Notebook and explore the analysis:
+4. Preprocess the data:
+   ```bash
+   cd src
+   python process_pipeline.py
+   ```
+   This will generate the `df_cleaned.csv` file in the `data/processed/` directory, which is ready for analysis.
+5. Run Jupyter Notebook and explore the analysis:
    ```bash
    jupyter notebook notebooks/
    ```
@@ -146,4 +152,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ---
 
 🌟 **Contributions & feedback are welcome!** If you find this project insightful, feel free to ⭐ star the repository! 🚀
-
