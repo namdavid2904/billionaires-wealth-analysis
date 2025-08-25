@@ -6,7 +6,7 @@ A comprehensive exploration of global billionaire wealth distribution using data
 
 ## 🚀 Project Overview
 
-This project analyzes a dataset of 2,591 billionaires worldwide to understand:
+This project analyzes a realtime dataset of billionaires worldwide to understand:
 
 - 🌍 **Geographic & Demographic Distribution**: Understanding how billionaire wealth is spread across regions and demographics.
 - 🏭 **Industry-Specific Trends**: Identifying which industries dominate billionaire wealth.
